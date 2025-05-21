@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'カレンダー': '/calendar',
     'Googleドライブ': '/life',
     'メッセージ': '/companionship',
-    'お知らせ': '/database',
+    'カウンターシフト': '/database',
     'カウンター業務記録': '/grades',
     'マニュアル': '/password',
     '本を貸し出す': '/app',
