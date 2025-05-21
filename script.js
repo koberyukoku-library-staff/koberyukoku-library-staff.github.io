@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     '本を探す': '/manual'
   };
 
+  // 初期表示で「トップ」を表示する
+  const initialTitle = 'トップ';
+  contentHeader.textContent = initialTitle;
+  contentFrame.src = pathMap[initialTitle];
+
+  // 各メニュークリックで表示を更新
   menuItems.forEach(item => {
     item.addEventListener('click', () => {
       const text = item.textContent.trim();
