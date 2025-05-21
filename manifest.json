@@ -3,7 +3,7 @@
   "short_name": "図書ポータル",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#556b2f",
   "theme_color": "#ffffff",
   "icons": [
     {
