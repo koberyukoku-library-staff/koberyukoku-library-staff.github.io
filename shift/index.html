@@ -4,38 +4,55 @@
   <meta charset="UTF-8">
   <title>2025年6月のカレンダー</title>
   <style>
-    body {
-      background-color: #fff;
-      font-family: sans-serif;
-      color: #333;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
+
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      font-family: sans-serif;
+      background-color: #fff;
+      color: #333;
+      padding: 20px;
+    }
+
     h1 {
       color: #5562bf;
+      margin-bottom: 20px;
+      font-size: 2em;
     }
+
     table {
-      border-collapse: collapse;
       width: 100%;
-      max-width: 800px;
-      margin-top: 20px;
+      border-collapse: collapse;
+      table-layout: fixed;
     }
+
     th, td {
       border: 1px solid #aaa;
-      padding: 8px;
+      padding: 10px;
       text-align: center;
+      font-size: 1em;
     }
+
     th {
       background-color: #e0e4ff;
-      color: #333;
     }
+
     .holiday {
       background-color: #f2f2f2;
       color: #aaa;
     }
+
     .half-day {
       background-color: #ccc;
     }
+
     .event {
-      background-color: #dde3ff;
+      background-color: #dfffe0;
       font-weight: bold;
     }
   </style>
@@ -45,19 +62,19 @@
   <table>
     <thead>
       <tr>
-        <th>日付</th>
-        <th>曜日</th>
-        <th>昼休み</th>
-        <th>放課後</th>
+        <th style="width: 15%;">日付</th>
+        <th style="width: 15%;">曜日</th>
+        <th style="width: 35%;">昼休み</th>
+        <th style="width: 35%;">放課後</th>
       </tr>
     </thead>
     <tbody>
-      <!-- 月曜日〜日曜日分 -->
-      <!-- 繰り返し生成：1日〜30日まで -->
-      <!-- 以下は手動で作成しています -->
-      <!-- 例：月曜日・休み -->
+      <!-- 日曜から表示 -->
       <tr class="holiday">
-        <td>2</td><td>月</td><td colspan="2">休み</td>
+        <td>1</td><td>日</td><td colspan="2">休校日</td>
+      </tr>
+      <tr class="holiday">
+        <td>2</td><td>月</td><td colspan="2">休校日</td>
       </tr>
       <tr>
         <td>3</td><td>火</td><td></td><td></td>
@@ -75,7 +92,10 @@
         <td>7</td><td>土</td><td class="half-day">（半日授業）</td><td></td>
       </tr>
       <tr class="holiday">
-        <td>9</td><td>月</td><td colspan="2">休み</td>
+        <td>8</td><td>日</td><td colspan="2">休校日</td>
+      </tr>
+      <tr class="holiday">
+        <td>9</td><td>月</td><td colspan="2">休校日</td>
       </tr>
       <tr>
         <td>10</td><td>火</td><td></td><td></td>
@@ -90,10 +110,13 @@
         <td>13</td><td>金</td><td colspan="2" class="event">神龍祭</td>
       </tr>
       <tr>
-        <td>14</td><td>土</td><td colspan="2" class="holiday">休み</td>
+        <td>14</td><td>土</td><td colspan="2" class="holiday">休校日</td>
       </tr>
       <tr class="holiday">
-        <td>16</td><td>月</td><td colspan="2">休み</td>
+        <td>15</td><td>日</td><td colspan="2">休校日</td>
+      </tr>
+      <tr class="holiday">
+        <td>16</td><td>月</td><td colspan="2">休校日</td>
       </tr>
       <tr>
         <td>17</td><td>火</td><td></td><td></td>
@@ -111,7 +134,10 @@
         <td>21</td><td>土</td><td class="half-day">（半日授業）</td><td></td>
       </tr>
       <tr class="holiday">
-        <td>23</td><td>月</td><td colspan="2">休み</td>
+        <td>22</td><td>日</td><td colspan="2">休校日</td>
+      </tr>
+      <tr class="holiday">
+        <td>23</td><td>月</td><td colspan="2">休校日</td>
       </tr>
       <tr>
         <td>24</td><td>火</td><td></td><td></td>
@@ -126,10 +152,13 @@
         <td>27</td><td>金</td><td></td><td></td>
       </tr>
       <tr>
-        <td>28</td><td>土</td><td colspan="2" class="holiday">休み</td>
+        <td>28</td><td>土</td><td colspan="2" class="holiday">休校日</td>
       </tr>
       <tr class="holiday">
-        <td>30</td><td>月</td><td colspan="2">休み</td>
+        <td>29</td><td>日</td><td colspan="2">休校日</td>
+      </tr>
+      <tr class="holiday">
+        <td>30</td><td>月</td><td colspan="2">休校日</td>
       </tr>
     </tbody>
   </table>
