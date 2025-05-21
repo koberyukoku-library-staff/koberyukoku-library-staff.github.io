@@ -9,9 +9,10 @@ header {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* ヘッダー上のライン → 濃い茶色に */
 .top-border {
   height: 8px;
-  background-color: #a1712a; /* ← ここを変更 */
+  background-color: #a1712a;
 }
 
 .header-content {
@@ -27,7 +28,7 @@ header {
 }
 
 .header-content img:last-child {
-  width: 150px;
+  width: 144px;
   height: 48px;
 }
 
@@ -36,6 +37,7 @@ main {
   padding: 16px;
 }
 
+/* サイドバー全体 */
 .sidebar {
   width: 220px;
   flex-shrink: 0;
@@ -45,20 +47,23 @@ main {
   gap: 20px;
 }
 
+/* サイドバーの各ボックス背景 → クリーム色に変更 */
 .sidebar-box {
-  background-color: #fffacd;
+  background-color: #f5deb3;
   border-radius: 12px;
   overflow: hidden;
 }
 
+/* 「基本メニュー」「カウンター当番」の見出し部分 → 茶色背景＋白文字 */
 .sidebar-header {
   background-color: #a1712a;
   padding: 12px;
   font-weight: bold;
-  color: black;
+  color: white;
   text-align: center;
 }
 
+/* メニュー枠（白） */
 .menu {
   background-color: white;
   padding: 8px 0;
@@ -67,34 +72,40 @@ main {
   border-radius: 8px;
 }
 
+/* メニュー項目 → 黒文字のまま */
 .menu-item {
   padding: 10px 16px;
   border-bottom: 1px solid #e0e0e0;
   cursor: pointer;
   font-size: 14px;
+  color: black;
 }
 
 .menu-item:last-child {
   border-bottom: none;
 }
 
+/* メインコンテンツのエリア背景 → クリーム色に変更 */
 .content-area {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background-color: #fffacd;
+  background-color: #f5deb3;
   border-radius: 12px;
   overflow: hidden;
 }
 
+/* 「トップ」見出し → 茶色背景＋白文字 */
 .content-header {
-  background-color: #e9e2b2;
+  background-color: #a1712a;
   padding: 12px 16px;
   font-weight: bold;
   font-size: 16px;
   text-align: center;
+  color: white;
 }
 
+/* 中の白枠部分 */
 .content-inner {
   background-color: white;
   margin: 20px auto;
