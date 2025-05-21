@@ -20,7 +20,7 @@
     }
 
     h1 {
-      color: #5562bf;
+      color: #2e7d32; /* 濃い緑 */
       margin-bottom: 20px;
       font-size: 2em;
     }
@@ -29,31 +29,38 @@
       width: 100%;
       border-collapse: collapse;
       table-layout: fixed;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     th, td {
       border: 1px solid #aaa;
-      padding: 10px;
+      padding: 6px;
       text-align: center;
-      font-size: 1em;
+      font-size: 0.9em;
     }
 
-    th {
-      background-color: #e0e4ff;
+    th.day, td.day {
+      background-color: #fff; /* 塗りつぶしなし */
+      color: #333;
+    }
+
+    th.section, td.section {
+      background-color: #e6f9e6; /* 薄い緑 */
     }
 
     .holiday {
-      background-color: #f2f2f2;
-      color: #aaa;
+      background-color: #e6f9e6;
+      color: #666;
+    }
+
+    .event {
+      background-color: #fff9c4; /* 黄色 */
+      font-weight: bold;
     }
 
     .half-day {
       background-color: #ccc;
-    }
-
-    .event {
-      background-color: #dfffe0;
-      font-weight: bold;
     }
   </style>
 </head>
@@ -62,103 +69,103 @@
   <table>
     <thead>
       <tr>
-        <th style="width: 15%;">日付</th>
-        <th style="width: 15%;">曜日</th>
-        <th style="width: 35%;">昼休み</th>
-        <th style="width: 35%;">放課後</th>
+        <th class="day" style="width: 15%;">日付</th>
+        <th class="day" style="width: 15%;">曜日</th>
+        <th class="section" style="width: 35%;">昼休み</th>
+        <th class="section" style="width: 35%;">放課後</th>
       </tr>
     </thead>
     <tbody>
-      <!-- 日曜から表示 -->
-      <tr class="holiday">
-        <td>1</td><td>日</td><td colspan="2">休校日</td>
-      </tr>
-      <tr class="holiday">
-        <td>2</td><td>月</td><td colspan="2">休校日</td>
+      <!-- 各行 -->
+      <tr>
+        <td class="day">1</td><td class="day">日</td><td class="holiday" colspan="2">休校日</td>
       </tr>
       <tr>
-        <td>3</td><td>火</td><td></td><td></td>
+        <td class="day">2</td><td class="day">月</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>4</td><td>水</td><td></td><td></td>
+        <td class="day">3</td><td class="day">火</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>5</td><td>木</td><td></td><td></td>
+        <td class="day">4</td><td class="day">水</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>6</td><td>金</td><td></td><td></td>
+        <td class="day">5</td><td class="day">木</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>7</td><td>土</td><td class="half-day">（半日授業）</td><td></td>
-      </tr>
-      <tr class="holiday">
-        <td>8</td><td>日</td><td colspan="2">休校日</td>
-      </tr>
-      <tr class="holiday">
-        <td>9</td><td>月</td><td colspan="2">休校日</td>
+        <td class="day">6</td><td class="day">金</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>10</td><td>火</td><td></td><td></td>
+        <td class="day">7</td><td class="day">土</td><td class="half-day">（半日授業）</td><td class="section"></td>
       </tr>
       <tr>
-        <td>11</td><td>水</td><td></td><td></td>
+        <td class="day">8</td><td class="day">日</td><td class="holiday" colspan="2">休校日</td>
       </tr>
       <tr>
-        <td>12</td><td>木</td><td colspan="2" class="event">前日準備</td>
+        <td class="day">9</td><td class="day">月</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>13</td><td>金</td><td colspan="2" class="event">神龍祭</td>
+        <td class="day">10</td><td class="day">火</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>14</td><td>土</td><td colspan="2" class="holiday">休校日</td>
-      </tr>
-      <tr class="holiday">
-        <td>15</td><td>日</td><td colspan="2">休校日</td>
-      </tr>
-      <tr class="holiday">
-        <td>16</td><td>月</td><td colspan="2">休校日</td>
+        <td class="day">11</td><td class="day">水</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>17</td><td>火</td><td></td><td></td>
+        <td class="day">12</td><td class="day">木</td><td class="event" colspan="2">前日準備</td>
       </tr>
       <tr>
-        <td>18</td><td>水</td><td></td><td></td>
+        <td class="day">13</td><td class="day">金</td><td class="event" colspan="2">神龍祭</td>
       </tr>
       <tr>
-        <td>19</td><td>木</td><td></td><td></td>
+        <td class="day">14</td><td class="day">土</td><td class="holiday" colspan="2">休校日</td>
       </tr>
       <tr>
-        <td>20</td><td>金</td><td></td><td></td>
+        <td class="day">15</td><td class="day">日</td><td class="holiday" colspan="2">休校日</td>
       </tr>
       <tr>
-        <td>21</td><td>土</td><td class="half-day">（半日授業）</td><td></td>
-      </tr>
-      <tr class="holiday">
-        <td>22</td><td>日</td><td colspan="2">休校日</td>
-      </tr>
-      <tr class="holiday">
-        <td>23</td><td>月</td><td colspan="2">休校日</td>
+        <td class="day">16</td><td class="day">月</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>24</td><td>火</td><td></td><td></td>
+        <td class="day">17</td><td class="day">火</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>25</td><td>水</td><td></td><td></td>
+        <td class="day">18</td><td class="day">水</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>26</td><td>木</td><td></td><td></td>
+        <td class="day">19</td><td class="day">木</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>27</td><td>金</td><td></td><td></td>
+        <td class="day">20</td><td class="day">金</td><td class="section"></td><td class="section"></td>
       </tr>
       <tr>
-        <td>28</td><td>土</td><td colspan="2" class="holiday">休校日</td>
+        <td class="day">21</td><td class="day">土</td><td class="half-day">（半日授業）</td><td class="section"></td>
       </tr>
-      <tr class="holiday">
-        <td>29</td><td>日</td><td colspan="2">休校日</td>
+      <tr>
+        <td class="day">22</td><td class="day">日</td><td class="holiday" colspan="2">休校日</td>
       </tr>
-      <tr class="holiday">
-        <td>30</td><td>月</td><td colspan="2">休校日</td>
+      <tr>
+        <td class="day">23</td><td class="day">月</td><td class="section"></td><td class="section"></td>
+      </tr>
+      <tr>
+        <td class="day">24</td><td class="day">火</td><td class="section"></td><td class="section"></td>
+      </tr>
+      <tr>
+        <td class="day">25</td><td class="day">水</td><td class="section"></td><td class="section"></td>
+      </tr>
+      <tr>
+        <td class="day">26</td><td class="day">木</td><td class="section"></td><td class="section"></td>
+      </tr>
+      <tr>
+        <td class="day">27</td><td class="day">金</td><td class="section"></td><td class="section"></td>
+      </tr>
+      <tr>
+        <td class="day">28</td><td class="day">土</td><td class="holiday" colspan="2">休校日</td>
+      </tr>
+      <tr>
+        <td class="day">29</td><td class="day">日</td><td class="holiday" colspan="2">休校日</td>
+      </tr>
+      <tr>
+        <td class="day">30</td><td class="day">月</td><td class="section"></td><td class="section"></td>
       </tr>
     </tbody>
   </table>
