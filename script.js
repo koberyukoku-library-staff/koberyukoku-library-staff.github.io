@@ -1,0 +1,26 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const menuItems = document.querySelectorAll('.menu-item');
+  const contentHeader = document.getElementById('content-title');
+  const contentFrame = document.getElementById('content-frame');
+
+  const pathMap = {
+    'トップ': '/top',
+    'カレンダー': '/calendar',
+    'Googleドライブ': '/life',
+    'メッセージ': '/companionship',
+    'カウンター当番表': '/database',
+    'カウンター業務記録': '/grades',
+    'その他・マニュアル': '/password',
+    '本を貸し出す': '/app',
+    '本を返却する': '/memo',
+    '本を探す': '/manual'
+  };
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const text = item.textContent.trim();
+      contentHeader.textContent = text;
+      contentFrame.src = pathMap[text] || '/top';
+    });
+  });
+});
