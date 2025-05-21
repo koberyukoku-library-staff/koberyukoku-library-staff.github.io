@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     'メッセージ': '/companionship',
     'カウンターシフト': '/database',
     'カウンター業務記録': '/grades',
+    '申請': '/manual',
     'マニュアル': '/password',
     '本を貸し出す': '/app',
     '本を返却する': '/memo',
-    '本を探す': '/manual'
   };
 
   // 初期表示で「トップ」を表示する
