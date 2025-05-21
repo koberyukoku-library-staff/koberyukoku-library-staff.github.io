@@ -1,26 +1,73 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>図書ポータル</title>
 
   <!-- ファビコン -->
-  <link rel="icon" href="icon.JPG" type="image/jpeg">
+  <link rel="icon" href="icon.JPG" type="image/jpeg" />
 
   <!-- Apple Touch Icon（iOS ホーム画面） -->
-  <link rel="apple-touch-icon" href="icon.JPG">
+  <link rel="apple-touch-icon" href="icon.JPG" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="図書ポータル" />
 
   <!-- Android / PWA 用 -->
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#ffffff" />
 
   <!-- Windows タイル用 -->
-  <meta name="msapplication-TileImage" content="icon.JPG">
-  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="icon.JPG" />
 
-  <!-- テーマカラー（Android のツールバーなど） -->
-  <meta name="theme-color" content="#ffffff">
+  <!-- スタイル -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <header>
+    <div class="top-border"></div>
+    <div class="header-content">
+      <img src="bunzo1.jpg" alt="図書館ロゴ" />
+      <img src="logo.JPG" alt="図書館ロゴ2" />
+    </div>
+  </header>
+
+  <main>
+    <div class="sidebar">
+      <div class="sidebar-box">
+        <div class="sidebar-header">基本メニュー</div>
+        <div class="menu">
+          <div class="menu-item">トップ</div>
+          <div class="menu-item">カレンダー</div>
+          <div class="menu-item">Googleドライブ</div>
+          <div class="menu-item">メッセージ</div>
+          <div class="menu-item">カウンター当番表</div>
+          <div class="menu-item">カウンター業務記録</div>
+          <div class="menu-item">その他・マニュアル</div>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-header">カウンター当番</div>
+        <div class="menu">
+          <div class="menu-item">本を貸し出す</div>
+          <div class="menu-item">本を返却する</div>
+          <div class="menu-item">本を探す</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="content-header" id="content-title">トップ</div>
+      <div class="content-inner">
+        <iframe id="content-frame" src="about:blank" frameborder="0"></iframe>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
