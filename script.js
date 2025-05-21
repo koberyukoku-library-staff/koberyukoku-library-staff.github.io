@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     'トップ': '/top',
     'カレンダー': '/calendar',
     'Googleドライブ': '/life',
-    'メッセージ': '/companionship',
+    'メッセージ': '/message',
     'カウンターシフト': '/shift',
     'カウンター業務記録': '/report',
     '申請': '/petition',
     'マニュアル': '/manual',
-    '本を貸し出す': '/app',
-    '本を返却する': '/memo',
+    '本を貸し出す': '/lending',
+    '本を返却する': '/return',
   };
 
   // 初期表示で「トップ」を表示する
