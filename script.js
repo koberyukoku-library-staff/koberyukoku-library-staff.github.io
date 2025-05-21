@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     '本を返却する': '/return'
   };
 
+  // 初期表示で「トップ」を表示する
   const initialTitle = 'トップ';
   contentHeader.textContent = initialTitle;
   contentFrame.src = pathMap[initialTitle];
@@ -23,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
   menuItems.forEach(item => {
     item.addEventListener('click', () => {
       const text = item.textContent.trim();
-      contentHeader.textContent = text;
 
       if (text === 'Googleドライブ') {
-        // 別ウィンドウで開く
+        // タイトルと iframe は変更しない
         window.open(pathMap[text], '_blank');
       } else {
-        // 通常はiframeに表示
+        // 通常処理：タイトルと iframe を更新
+        contentHeader.textContent = text;
         contentFrame.src = pathMap[text] || '/top';
       }
     });
