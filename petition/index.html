@@ -14,7 +14,6 @@
     .top-bar {
       display: flex;
       align-items: center;
-      gap: 1rem;
     }
 
     select {
@@ -25,14 +24,16 @@
       width: 180px;
     }
 
-    .rounded-box {
+    .description-box {
+      margin-top: 1rem;
       background-color: white;
       border: 3px solid #556b2f;
-      padding: 0.5rem 1rem;
+      padding: 1rem;
       border-radius: 9999px;
       font-size: 0.95rem;
       color: #333;
-      min-height: 1.5em;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .form-box {
@@ -63,8 +64,9 @@
       <option value="counter">カウンター希望曜日変更届</option>
       <option value="book">新刊購入希望届</option>
     </select>
-    <div id="descriptionBox" class="rounded-box"></div>
   </div>
+
+  <div id="descriptionBox" class="description-box"></div>
 
   <div class="form-box">
     <div id="formContainer" class="form-container">
@@ -79,15 +81,15 @@
 
     const forms = {
       absent: {
-        desc: "定例会やカウンター当番を遅刻/早退/欠席する場合",
+        desc: "定例会やカウンター当番を遅刻/早退/欠席する場合は必ず申請してください。",
         iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScdC5-32lQ5dmwZgVH-vpHI3d5MSfPUCSLmIFIqswZf0Mjcdg/viewform?embedded=true"></iframe>`
       },
       counter: {
-        desc: "習い事や部活でカウンターに絶対立てない曜日を変更する場合",
+        desc: "習い事や部活でカウンターに絶対立てない曜日を変更する場合は申請してください。",
         iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSec9qNVwpO0OTDdzBkJ6noWTcSpTN0qwd8jTAWV3e5xEbTzGg/viewform?embedded=true"></iframe>`
       },
       book: {
-        desc: "図書室に新しく入れて欲しい本があれば",
+        desc: "図書室に新しく入れて欲しい本があれば申請してください。",
         iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScv7oLg6DGCQfrOqxVsJZH3tDB7rh6Cn-NrijTFBuV2KcuUzw/viewform?embedded=true"></iframe>`
       }
     };
