@@ -82,8 +82,23 @@
       color: #556b2f;
     }
 
+    .form-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .form-row select,
+    .form-row input[type="date"] {
+      flex: 1;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
     form input[type="text"],
-    form input[type="date"],
     form textarea {
       width: 100%;
       margin-bottom: 10px;
@@ -151,7 +166,46 @@
 
     <form id="scheduleForm">
       <h2>今日の予定リスト送信</h2>
-      <input type="date" id="dateInput" required />
+      <div class="form-row">
+        <input type="date" id="dateInput" required />
+        <select id="roleSelect" required>
+          <option value="" disabled selected>▼役割を選択</option>
+          <option>顧問</option>
+          <option>司書</option>
+          <option>委員長</option>
+          <option>副委員長</option>
+          <option>連絡担当</option>
+          <option>高３</option>
+          <option>高２</option>
+          <option>高１</option>
+          <option>中学</option>
+        </select>
+        <select id="nameSelect" required>
+          <option value="" disabled selected>▼図書委員</option>
+          <option>2001　長谷川 凛久</option>
+          <option>2201　本谷 元</option>
+          <option>2301　有馬 悠人</option>
+          <option>2302　坪井 志歩佳</option>
+          <option>2303　中谷 透</option>
+          <option>2304　中山 稜大</option>
+          <option>2305　福長 馳丈</option>
+          <option>2401　岩田 宗馬</option>
+          <option>2402　岡本 将輝</option>
+          <option>2403　間墻 勘太郎</option>
+          <option>2404　高橋 にこ</option>
+          <option>2501　楠本 健心</option>
+          <option>2502　小林 悠仁</option>
+          <option>2503　細馬 大暉</option>
+          <option>2504　小泉 耕平</option>
+          <option>2505　森 悠成</option>
+          <option>2506　堀江 由真</option>
+          <option>0001　赤井 峰子</option>
+          <option>0002　大坪 志那都</option>
+          <option>0003　武内 悠祐</option>
+          <option>0004　山岸 周平</option>
+          <option>0005　吉田 千佳</option>
+        </select>
+      </div>
       <input type="text" id="labelInput" placeholder="例：通常活動日" required />
       <textarea id="contentInput" placeholder="予定の内容（改行OK）" rows="4" required></textarea>
       <button type="submit">送信する</button>
@@ -260,13 +314,22 @@
 
     document.getElementById("scheduleForm").addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      const role = document.getElementById("roleSelect").value;
+      const name = document.getElementById("nameSelect").value;
+
+      if (!role || !name) {
+        alert("役割と氏名を選択してください。");
+        return;
+      }
+
       const date = document.getElementById("dateInput").value;
       const label = document.getElementById("labelInput").value;
       const content = document.getElementById("contentInput").value;
 
       await addDoc(collection(db, "schedules"), {
         date,
-        label,
+        label: `[${role}] ${name} - ${label}`,
         content
       });
 
