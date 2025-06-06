@@ -8,7 +8,7 @@
       margin: 0;
       padding: 2rem;
       font-family: sans-serif;
-      background-color: #f4f4f4;
+      background-color: #ffffff;
     }
 
     .top-bar {
@@ -27,16 +27,17 @@
 
     .rounded-box {
       background-color: white;
-      border: 3px solid #5562bf;
+      border: 3px solid #556b2f;
       padding: 0.5rem 1rem;
       border-radius: 9999px;
       font-size: 0.95rem;
       color: #333;
+      min-height: 1.5em;
     }
 
     .form-box {
       margin-top: 2rem;
-      border: 3px solid #5562bf;
+      border: 3px solid #556b2f;
       border-radius: 30px;
       padding: 1rem;
       background-color: white;
@@ -49,7 +50,7 @@
     }
 
     .form-container {
-      height: 1200px; /* 高さ調整可 */
+      height: 1200px;
     }
   </style>
 </head>
@@ -62,7 +63,7 @@
       <option value="counter">カウンター希望曜日変更届</option>
       <option value="book">新刊購入希望届</option>
     </select>
-    <div id="descriptionBox" class="rounded-box">説明がここに表示されます</div>
+    <div id="descriptionBox" class="rounded-box"></div>
   </div>
 
   <div class="form-box">
@@ -97,7 +98,7 @@
         descriptionBox.textContent = forms[value].desc;
         formContainer.innerHTML = forms[value].iframe;
       } else {
-        descriptionBox.textContent = "説明がここに表示されます";
+        descriptionBox.textContent = "";
         formContainer.innerHTML = "";
       }
     });
