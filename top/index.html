@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>今日の予定リスト</title>
   <style>
+    :root {
+      --matcha-color: #6a7c3b;
+      --matcha-dark: #556b2f;
+      --white: #ffffff;
+    }
+
     body {
-      background-color: white;
+      background-color: var(--white);
       font-family: sans-serif;
       margin: 0;
       padding: 0;
@@ -26,8 +32,8 @@
     }
 
     .schedule-header {
-      background-color: #556b2f;
-      color: white;
+      background-color: var(--matcha-color);
+      color: var(--white);
       padding: 10px;
       font-weight: bold;
       font-size: 18px;
@@ -65,8 +71,8 @@
 
     .buttons button {
       margin-right: 5px;
-      background-color: #556b2f;
-      border: 1px solid #445824;
+      background-color: var(--matcha-color);
+      border: 1px solid var(--matcha-dark);
       padding: 4px 8px;
       cursor: pointer;
       border-radius: 4px;
@@ -76,7 +82,7 @@
     form {
       margin-top: 30px;
       padding: 20px;
-      background-color: #556b2f;
+      background-color: var(--matcha-color);
       border-radius: 10px;
       color: white;
     }
@@ -95,8 +101,8 @@
 
     form button {
       padding: 10px 20px;
-      background-color: #556b2f;
-      border: 1px solid #445824;
+      background-color: var(--matcha-color);
+      border: 1px solid var(--matcha-dark);
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
@@ -135,9 +141,33 @@
       margin-left: 5px;
       border-radius: 4px;
       border: 1px solid #aaa;
-      background-color: #556b2f;
+      background-color: var(--matcha-color);
       color: white;
       cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .schedule-header {
+        font-size: 16px;
+        padding: 8px;
+      }
+
+      form {
+        padding: 15px;
+      }
+
+      form input, form textarea {
+        font-size: 16px;
+      }
+
+      .buttons button {
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+
+      form button {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
