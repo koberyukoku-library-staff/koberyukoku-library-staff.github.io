@@ -68,6 +68,7 @@
       <option value="counter">カウンター希望曜日変更届</option>
       <option value="book">新刊購入希望届</option>
       <option value="course">コース移動届</option>
+      <option value="leave">長期休部届</option>
     </select>
     <div id="descriptionBox" class="rounded-box"></div>
   </div>
@@ -99,6 +100,10 @@
       course: {
         desc: "コースを移動した場合は各年度ごとに申請してください。",
         iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfN6aZtAvmfANbdKWBeM1uPKAeVCuAuUs5esM67KAncZpumGg/viewform?embedded=true"></iframe>`
+      },
+      leave: {
+        desc: "長期間（１ヶ月以上）欠席が続く場合に申請してください。",
+        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeoEaB5-K3AiJHaRqfmJ3q0Zyeyo-sTi-3k8CJ-D-iOpGPoYA/viewform?embedded=true"></iframe>`
       }
     };
 
