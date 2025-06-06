@@ -12,8 +12,10 @@
     }
 
     .top-bar {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr;
       align-items: center;
+      gap: 1rem;
     }
 
     select {
@@ -24,11 +26,10 @@
       width: 180px;
     }
 
-    .description-box {
-      margin-top: 1rem;
+    .rounded-box {
       background-color: white;
       border: 3px solid #556b2f;
-      padding: 1rem;
+      padding: 0.5rem 1rem;
       border-radius: 9999px;
       font-size: 0.95rem;
       color: #333;
@@ -64,9 +65,8 @@
       <option value="counter">カウンター希望曜日変更届</option>
       <option value="book">新刊購入希望届</option>
     </select>
+    <div id="descriptionBox" class="rounded-box"></div>
   </div>
-
-  <div id="descriptionBox" class="description-box"></div>
 
   <div class="form-box">
     <div id="formContainer" class="form-container">
