@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>フォーム選択ページ</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: sans-serif;
+      background-color: #ffffff;
+    }
 
+    .top-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    select {
+      padding: 0.3rem 0.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 180px;
+    }
+
+    .rounded-box {
+      background-color: white;
+      border: 3px solid #556b2f;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      color: #333;
+      min-height: 1.5em;
+    }
+
+    .form-box {
+      margin-top: 2rem;
+      border: 3px solid #556b2f;
+      border-radius: 30px;
+      padding: 1rem;
+      background-color: white;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .form-container {
+      height: 1200px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <select id="formSelector">
+      <option value="">プルダウンを選択</option>
+      <option value="absent">遅刻/早退/欠席届</option>
+      <option value="counter">カウンター希望曜日変更届</option>
+      <option value="book">新刊購入希望届</option>
+    </select>
+    <div id="descriptionBox" class="rounded-box"></div>
+  </div>
+
+  <div class="form-box">
+    <div id="formContainer" class="form-container">
+      <!-- フォームがここに表示される -->
+    </div>
+  </div>
+
+  <script>
+    const formSelector = document.getElementById('formSelector');
+    const descriptionBox = document.getElementById('descriptionBox');
+    const formContainer = document.getElementById('formContainer');
+
+    const forms = {
+      absent: {
+        desc: "定例会やカウンター当番を遅刻/早退/欠席する場合",
+        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScdC5-32lQ5dmwZgVH-vpHI3d5MSfPUCSLmIFIqswZf0Mjcdg/viewform?embedded=true"></iframe>`
+      },
+      counter: {
+        desc: "習い事や部活でカウンターに絶対立てない曜日を変更する場合",
+        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSec9qNVwpO0OTDdzBkJ6noWTcSpTN0qwd8jTAWV3e5xEbTzGg/viewform?embedded=true"></iframe>`
+      },
+      book: {
+        desc: "図書室に新しく入れて欲しい本があれば",
+        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScv7oLg6DGCQfrOqxVsJZH3tDB7rh6Cn-NrijTFBuV2KcuUzw/viewform?embedded=true"></iframe>`
+      }
+    };
+
+    formSelector.addEventListener('change', () => {
+      const value = formSelector.value;
+      if (forms[value]) {
+        descriptionBox.textContent = forms[value].desc;
+        formContainer.innerHTML = forms[value].iframe;
+      } else {
+        descriptionBox.textContent = "";
+        formContainer.innerHTML = "";
+      }
+    });
+  </script>
+
+</body>
+</html>
