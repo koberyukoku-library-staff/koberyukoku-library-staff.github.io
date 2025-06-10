@@ -18,12 +18,26 @@
       gap: 1rem;
     }
 
+    .select-box {
+      background-color: white;
+      border: 3px solid #556b2f;
+      border-radius: 9999px;
+      padding: 0.3rem 0.8rem;
+      display: flex;
+      align-items: center;
+      height: 2.5em;
+      box-sizing: border-box;
+    }
+
     select {
       padding: 0.3rem 0.5rem;
       font-size: 1rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      width: 180px;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #000;
+      font-family: inherit;
+      appearance: none;
     }
 
     .rounded-box {
@@ -62,14 +76,16 @@
 <body>
 
   <div class="top-bar">
-    <select id="formSelector">
-      <option value="">プルダウンを選択</option>
-      <option value="absent">遅刻/早退/欠席届</option>
-      <option value="counter">カウンター希望曜日変更届</option>
-      <option value="book">新刊購入希望届</option>
-      <option value="course">コース移動届</option>
-      <option value="leave">長期休部届</option>
-    </select>
+    <div class="select-box">
+      <select id="formSelector">
+        <option value="">プルダウンを選択</option>
+        <option value="absent">遅刻/早退/欠席届</option>
+        <option value="counter">カウンター希望曜日変更届</option>
+        <option value="book">新刊購入希望届</option>
+        <option value="leave">長期休部届</option>
+        <option value="course">コース移動届</option>
+      </select>
+    </div>
     <div id="descriptionBox" class="rounded-box"></div>
   </div>
 
