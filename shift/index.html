@@ -2,51 +2,61 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>シフト希望</title>
+  <title>フォーム選択ページ</title>
   <style>
     body {
       margin: 0;
-      padding: 2rem; /* ここを追加して余白を作成 */
+      padding: 2rem;
       font-family: sans-serif;
-      background-color: #ffffff; /* 参考HTMLと同じ背景色に */
+      background-color: #ffffff;
     }
 
-    .top-button {
-      display: inline-flex;
+    .top-bar {
+      display: flex;
       align-items: center;
-      background-color: transparent;
+    }
+
+    .select-box {
+      background-color: white;
       border: 3px solid #556b2f;
-      border-radius: 9999px; /* 両端を半円に */
-      padding: 5px 12px;
-      margin: 10px;
-      text-decoration: none;
-      color: black; /* 文字色を黒に */
-      font-weight: normal; /* 太字を解除 */
+      border-radius: 9999px;
+      padding: 0.3rem 0.8rem;
+      display: flex;
+      align-items: center;
+      height: 2.5em;
+      box-sizing: border-box;
     }
 
-    .top-button img {
-      height: 24px;
-      width: 24px;
-      margin-right: 8px;
-    }
-
-    .top-left {
-      position: absolute;
-      top: 0;
-      left: 0;
+    select {
+      padding: 0.3rem 0.5rem;
+      font-size: 1rem;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #000;
+      font-family: inherit;
+      appearance: none;
     }
   </style>
 </head>
 <body>
-  <div class="top-left">
-    <a
-      href="https://docs.google.com/spreadsheets/d/1-oZuUiQ8XBKgjP7ljvhzVPH-XI-6vXr9NTkFVxHcKEQ/edit?usp=drivesdk"
-      target="_blank"
-      class="top-button"
-    >
-      <img src="/shift/spread.jpg" alt="アイコン">
-      シフト希望を入力
-    </a>
+
+  <div class="top-bar">
+    <div class="select-box">
+      <select id="formSelector">
+        <option value="">プルダウンを選択</option>
+        <option value="absent">遅刻/早退/欠席届</option>
+        <option value="counter">カウンター希望曜日変更届</option>
+        <option value="book">新刊購入希望届</option>
+        <option value="leave">長期休部届</option>
+        <option value="course">コース移動届</option>
+      </select>
+    </div>
   </div>
+
+  <script>
+    // 不要になった機能はすべて削除
+  </script>
+
 </body>
 </html>
