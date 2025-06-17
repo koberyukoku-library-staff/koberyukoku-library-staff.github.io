@@ -2,70 +2,43 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サイト工事中</title>
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
-    }
-
-    .container {
+      background-color: #fefefe;
       display: flex;
-      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       height: 100vh;
+      font-family: "Arial", sans-serif;
+      text-align: center;
     }
 
-    .left {
-      flex: 0 0 40%;
-      overflow-y: auto;
+    .message-top {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #d9534f;
+      margin-bottom: 1rem;
     }
 
-    .right {
-      flex: 1;
-      overflow: hidden;
+    .image {
+      max-width: 80%;
+      height: auto;
     }
 
-    .left iframe {
-      width: 100%;
-      height: 1500px;
-      border: none;
-    }
-
-    .right iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-
-      .left, .right {
-        flex: none;
-        width: 100%;
-      }
-
-      .left iframe {
-        height: 1200px;
-      }
-
-      .right iframe {
-        height: 500px;
-      }
+    .message-bottom {
+      font-size: 1.2rem;
+      color: #555;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="left">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScHyM26aFLKwVbQ3OGAMCZEXrqtKT-u23IDZ8g-iakd4mDi7Q/viewform?embedded=true" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
-    </div>
-    <div class="right">
-      <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FTokyo&showPrint=0&showTz=0&showCalendars=0&showTitle=0&src=Y19iZDAwNjk2YzA3YjhhM2FkZDEwM2VlNjUxMmM4ZTZmMzVjZWRjOTYwNjJjYzMxODgyNjMwYzM1NmVjOGZhMzVjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y19jNzc0MzM1NmI3YzU5ZmE0NmRlZTJlNjI3OTFlOTIwZDk2NTc1YjAwMmE3ZjkyMzE2MjUxOTU1MWNkMmZhMTI4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23f6bf26&color=%23d81b60" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-    </div>
-  </div>
+  <div class="message-top">ごめんなさい！</div>
+  <img class="image" src="/bunzo2.jpg" alt="工事中イメージ">
+  <div class="message-bottom">このページはただいま工事中です</div>
 </body>
 </html>
