@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>フォーム選択ページ</title>
+  <title>シフト入力ページ</title>
   <style>
     body {
       margin: 0;
@@ -12,37 +12,32 @@
     }
 
     .top-bar {
-      display: grid;
-      grid-template-columns: auto 1fr;
+      display: flex;
       align-items: center;
       gap: 1rem;
     }
 
-    .select-box {
+    .shift-button {
+      display: flex;
+      align-items: center;
       background-color: white;
       border: 3px solid #556b2f;
       border-radius: 9999px;
-      padding: 0.3rem 0.8rem;
-      display: flex;
-      align-items: center;
-      height: 2.5em;
-      box-sizing: border-box;
-    }
-
-    select {
-      padding: 0.3rem 0.5rem;
+      padding: 0.3rem 1rem;
       font-size: 1rem;
-      border: none;
-      outline: none;
-      background: transparent;
-      color: #000;
-      font-family: inherit;
-      appearance: none;
+      color: #333;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s;
     }
 
-    /* 説明欄非表示 */
-    .rounded-box {
-      display: none;
+    .shift-button:hover {
+      background-color: #f0f0f0;
+    }
+
+    .shift-button img {
+      height: 1.5em;
+      margin-right: 0.5rem;
     }
 
     .form-box {
@@ -51,14 +46,6 @@
       border-radius: 30px;
       padding: 1rem;
       background-color: white;
-    }
-
-    /* iframe を非表示 */
-    iframe {
-      display: none;
-    }
-
-    .form-container {
       height: 1200px;
     }
   </style>
@@ -66,52 +53,15 @@
 <body>
 
   <div class="top-bar">
-    <div class="select-box">
-      <select id="formSelector">
-        <option value="">プルダウンを選択</option>
-        <option value="absent">遅刻/早退/欠席届</option>
-        <option value="counter">カウンター希望曜日変更届</option>
-        <option value="book">新刊購入希望届</option>
-        <option value="leave">長期休部届</option>
-        <option value="course">コース移動届</option>
-      </select>
-    </div>
-    <div id="descriptionBox" class="rounded-box"></div>
+    <a class="shift-button" href="https://docs.google.com/spreadsheets/d/1-oZuUiQ8XBKgjP7ljvhzVPH-XI-6vXr9NTkFVxHcKEQ/edit?usp=drivesdk" target="_blank">
+      <img src="/shift/spread.jpg" alt="シフト画像">
+      シフトを入力
+    </a>
   </div>
 
   <div class="form-box">
-    <div id="formContainer" class="form-container">
-      <!-- フォームは表示されません -->
-    </div>
+    <!-- PDFをここに埋め込む予定 -->
   </div>
-
-  <script>
-    const formSelector = document.getElementById('formSelector');
-    const formContainer = document.getElementById('formContainer');
-
-    const forms = {
-      absent: {
-        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScdC5-32lQ5dmwZgVH-vpHI3d5MSfPUCSLmIFIqswZf0Mjcdg/viewform?embedded=true"></iframe>`
-      },
-      counter: {
-        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSec9qNVwpO0OTDdzBkJ6noWTcSpTN0qwd8jTAWV3e5xEbTzGg/viewform?embedded=true"></iframe>`
-      },
-      book: {
-        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScv7oLg6DGCQfrOqxVsJZH3tDB7rh6Cn-NrijTFBuV2KcuUzw/viewform?embedded=true"></iframe>`
-      },
-      course: {
-        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfN6aZtAvmfANbdKWBeM1uPKAeVCuAuUs5esM67KAncZpumGg/viewform?embedded=true"></iframe>`
-      },
-      leave: {
-        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeoEaB5-K3AiJHaRqfmJ3q0Zyeyo-sTi-3k8CJ-D-iOpGPoYA/viewform?embedded=true"></iframe>`
-      }
-    };
-
-    formSelector.addEventListener('change', () => {
-      // フォームも説明も表示しないので何もしない
-      formContainer.innerHTML = "";
-    });
-  </script>
 
 </body>
 </html>
