@@ -26,10 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = item.textContent.trim();
 
       if (text === 'Googleドライブ') {
-        // タイトルと iframe は変更しない
-        window.open(pathMap[text], '_blank');
+        // iOSのPWA対策: window.locationを使って直接外部にジャンプ
+        window.location.href = pathMap[text];
       } else {
-        // 通常処理：タイトルと iframe を更新
         contentHeader.textContent = text;
         contentFrame.src = pathMap[text] || '/top';
       }
