@@ -12,8 +12,10 @@
     }
 
     .top-bar {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr;
       align-items: center;
+      gap: 1rem;
     }
 
     .select-box {
@@ -37,6 +39,28 @@
       font-family: inherit;
       appearance: none;
     }
+
+    /* 説明欄非表示 */
+    .rounded-box {
+      display: none;
+    }
+
+    .form-box {
+      margin-top: 2rem;
+      border: 3px solid #556b2f;
+      border-radius: 30px;
+      padding: 1rem;
+      background-color: white;
+    }
+
+    /* iframe を非表示 */
+    iframe {
+      display: none;
+    }
+
+    .form-container {
+      height: 1200px;
+    }
   </style>
 </head>
 <body>
@@ -52,10 +76,41 @@
         <option value="course">コース移動届</option>
       </select>
     </div>
+    <div id="descriptionBox" class="rounded-box"></div>
+  </div>
+
+  <div class="form-box">
+    <div id="formContainer" class="form-container">
+      <!-- フォームは表示されません -->
+    </div>
   </div>
 
   <script>
-    // 不要になった機能はすべて削除
+    const formSelector = document.getElementById('formSelector');
+    const formContainer = document.getElementById('formContainer');
+
+    const forms = {
+      absent: {
+        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScdC5-32lQ5dmwZgVH-vpHI3d5MSfPUCSLmIFIqswZf0Mjcdg/viewform?embedded=true"></iframe>`
+      },
+      counter: {
+        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSec9qNVwpO0OTDdzBkJ6noWTcSpTN0qwd8jTAWV3e5xEbTzGg/viewform?embedded=true"></iframe>`
+      },
+      book: {
+        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScv7oLg6DGCQfrOqxVsJZH3tDB7rh6Cn-NrijTFBuV2KcuUzw/viewform?embedded=true"></iframe>`
+      },
+      course: {
+        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfN6aZtAvmfANbdKWBeM1uPKAeVCuAuUs5esM67KAncZpumGg/viewform?embedded=true"></iframe>`
+      },
+      leave: {
+        iframe: `<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeoEaB5-K3AiJHaRqfmJ3q0Zyeyo-sTi-3k8CJ-D-iOpGPoYA/viewform?embedded=true"></iframe>`
+      }
+    };
+
+    formSelector.addEventListener('change', () => {
+      // フォームも説明も表示しないので何もしない
+      formContainer.innerHTML = "";
+    });
   </script>
 
 </body>
