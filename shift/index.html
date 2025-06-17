@@ -35,11 +35,6 @@
       background-color: #f0f0f0;
     }
 
-    .shift-button img {
-      height: 1.5em;
-      margin-right: 0.5rem;
-    }
-
     .form-box {
       margin-top: 2rem;
       border: 3px solid #556b2f;
@@ -61,15 +56,33 @@
 <body>
 
   <div class="top-bar">
-    <a class="shift-button" href="https://docs.google.com/spreadsheets/d/1-oZuUiQ8XBKgjP7ljvhzVPH-XI-6vXr9NTkFVxHcKEQ/edit?usp=drivesdk" target="_blank">
-      <img src="/shift/spread.jpg" alt="シフト画像">
-      シフトを入力
-    </a>
+    <button class="shift-button" id="toggleShift">シフトを入力</button>
   </div>
 
   <div class="form-box">
-    <iframe src="/shift/2025-6.pdf"></iframe>
+    <iframe id="shiftFrame" src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Asia%2FTokyo&showPrint=0&src=aDc5MTA4MjRAa29iZXJ5dWtva3UuZWQuanA&color=%23039be5" style="border:solid 1px #777;"></iframe>
   </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleShift');
+    const iframe = document.getElementById('shiftFrame');
+
+    const calendarURL = "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Asia%2FTokyo&showPrint=0&src=aDc5MTA4MjRAa29iZXJ5dWtva3UuZWQuanA&color=%23039be5";
+    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLScHyM26aFLKwVbQ3OGAMCZEXrqtKT-u23IDZ8g-iakd4mDi7Q/viewform?embedded=true";
+
+    let showingForm = false;
+
+    toggleBtn.addEventListener('click', () => {
+      showingForm = !showingForm;
+      if (showingForm) {
+        iframe.src = formURL;
+        toggleBtn.textContent = 'シフトを見る';
+      } else {
+        iframe.src = calendarURL;
+        toggleBtn.textContent = 'シフトを入力';
+      }
+    });
+  </script>
 
 </body>
 </html>
