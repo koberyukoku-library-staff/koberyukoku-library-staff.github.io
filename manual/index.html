@@ -12,29 +12,23 @@
 
     .container {
       display: flex;
-      flex-direction: row;
       width: 100%;
       height: 100vh;
-      box-sizing: border-box;
     }
 
     .left {
-      flex: 1;
+      flex: 0 0 40%;
       overflow-y: auto;
-      padding: 10px;
-      box-sizing: border-box;
     }
 
     .right {
       flex: 1;
       overflow: hidden;
-      padding: 10px;
-      box-sizing: border-box;
     }
 
     .left iframe {
       width: 100%;
-      height: 1500px; /* 高めにして縦スクロールが効くようにする */
+      height: 1500px;
       border: none;
     }
 
@@ -49,12 +43,17 @@
         flex-direction: column;
       }
 
-      .right iframe {
-        height: 500px;
+      .left, .right {
+        flex: none;
+        width: 100%;
       }
 
       .left iframe {
         height: 1200px;
+      }
+
+      .right iframe {
+        height: 500px;
       }
     }
   </style>
