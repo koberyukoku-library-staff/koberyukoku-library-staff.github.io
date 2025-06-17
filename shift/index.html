@@ -2,114 +2,50 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>2025年6月のカレンダー</title>
+  <title>シフト希望</title>
   <style>
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
       padding: 0;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden; /* 横スクロール防止 */
       font-family: sans-serif;
-      background-color: #fff;
-      color: #333;
-      padding: 20px;
     }
 
-    h1 {
-      color: #2e7d32;
-      margin-bottom: 20px;
-      font-size: 1.5em;
-      text-align: center;
-    }
-
-    table {
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      border-collapse: collapse;
-      table-layout: fixed;
-    }
-
-    th, td {
-      border: 1px solid #aaa;
-      padding: 4px;
-      text-align: center;
-      font-size: 0.85em;
-      word-wrap: break-word;
-    }
-
-    th.day, td.day {
-      background-color: #fff;
-      color: #333;
-    }
-
-    th.section, td.section {
-      background-color: #e6f9e6;
-    }
-
-    .holiday {
-      background-color: #e6f9e6;
-      color: #666;
-    }
-
-    .event {
-      background-color: #fff9c4;
+    .top-button {
+      display: inline-flex;
+      align-items: center;
+      background-color: transparent;
+      border: 3px solid #556b2f;
+      border-radius: 9999px; /* 両端を半円に */
+      padding: 5px 12px;
+      margin: 10px;
+      text-decoration: none;
+      color: #556b2f;
       font-weight: bold;
     }
 
-    .half-day {
-      background-color: #ccc;
+    .top-button img {
+      height: 24px;
+      width: 24px;
+      margin-right: 8px;
+    }
+
+    .top-left {
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   </style>
 </head>
 <body>
-  <h1>2025年6月</h1>
-  <table>
-    <thead>
-      <tr>
-        <th class="day" style="width: 15%;">日付</th>
-        <th class="day" style="width: 15%;">曜日</th>
-        <th class="section" style="width: 35%;">昼休み</th>
-        <th class="section" style="width: 35%;">放課後</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td class="day">1</td><td class="day">日</td><td class="holiday" colspan="2">休校日</td></tr>
-      <tr><td class="day">2</td><td class="day">月</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">3</td><td class="day">火</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">4</td><td class="day">水</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">5</td><td class="day">木</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">6</td><td class="day">金</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">7</td><td class="day">土</td><td class="half-day">（半日授業）</td><td class="section"></td></tr>
-      <tr><td class="day">8</td><td class="day">日</td><td class="holiday" colspan="2">休校日</td></tr>
-      <tr><td class="day">9</td><td class="day">月</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">10</td><td class="day">火</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">11</td><td class="day">水</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">12</td><td class="day">木</td><td class="event" colspan="2">前日準備</td></tr>
-      <tr><td class="day">13</td><td class="day">金</td><td class="event" colspan="2">神龍祭</td></tr>
-      <tr><td class="day">14</td><td class="day">土</td><td class="holiday" colspan="2">休校日</td></tr>
-      <tr><td class="day">15</td><td class="day">日</td><td class="holiday" colspan="2">休校日</td></tr>
-      <tr><td class="day">16</td><td class="day">月</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">17</td><td class="day">火</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">18</td><td class="day">水</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">19</td><td class="day">木</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">20</td><td class="day">金</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">21</td><td class="day">土</td><td class="half-day">（半日授業）</td><td class="section"></td></tr>
-      <tr><td class="day">22</td><td class="day">日</td><td class="holiday" colspan="2">休校日</td></tr>
-      <tr><td class="day">23</td><td class="day">月</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">24</td><td class="day">火</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">25</td><td class="day">水</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">26</td><td class="day">木</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">27</td><td class="day">金</td><td class="section"></td><td class="section"></td></tr>
-      <tr><td class="day">28</td><td class="day">土</td><td class="holiday" colspan="2">休校日</td></tr>
-      <tr><td class="day">29</td><td class="day">日</td><td class="holiday" colspan="2">休校日</td></tr>
-      <tr><td class="day">30</td><td class="day">月</td><td class="section"></td><td class="section"></td></tr>
-    </tbody>
-  </table>
+  <div class="top-left">
+    <a
+      href="https://docs.google.com/spreadsheets/d/1-oZuUiQ8XBKgjP7ljvhzVPH-XI-6vXr9NTkFVxHcKEQ/edit?usp=drivesdk"
+      target="_blank"
+      class="top-button"
+    >
+      <img src="/spread.jpg" alt="アイコン">
+      シフト希望を入力
+    </a>
+  </div>
 </body>
 </html>
