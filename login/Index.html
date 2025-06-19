@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>図書ポータル ログイン</title>
 
+  <!-- ファビコン -->
+  <link rel="icon" href="/icon.jpeg" type="image/jpeg" />
+
+  <!-- Apple Touch Icon（iOS ホーム画面） -->
+  <link rel="apple-touch-icon" href="/icon.jpeg" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="図書ポータル" />
+
+  <!-- Android / PWA 用 -->
+  <link rel="manifest" href="/koberyukoku-library-staff/manifest.json" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Windows タイル用 -->
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="/icon.jpeg" />
+
+  <!-- スタイル -->
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- フォント -->
+  <style>
+    @font-face {
+      font-family: 'Stick';
+      src: url('/Stick-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    body {
+      font-family: 'Stick', sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      background-color: #4285F4;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #357ae8;
+    }
+  </style>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Firebase SDKの読み込み
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+    // Firebase構成情報
+    const firebaseConfig = {
+      apiKey: "AIzaSyCN0xbBPlPJM1szoOik6yMFgkiNRy_QhZY",
+      authDomain: "koberyukoku-library-staff.firebaseapp.com",
+      projectId: "koberyukoku-library-staff",
+      storageBucket: "koberyukoku-library-staff.firebasestorage.app",
+      messagingSenderId: "138126502371",
+      appId: "1:138126502371:web:1b352ee988a7da0f87d8d6",
+      measurementId: "G-W54M1NX394"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // ログイン処理
+    window.loginWithGoogle = function () {
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          window.location.href = "/koberyukoku-library-staff/";
+        })
+        .catch((error) => {
+          alert("ログインに失敗しました：" + error.message);
+        });
+    };
+  </script>
+</head>
+
+<body>
+  <h1>図書ポータル ログイン</h1>
+  <p>Google アカウントでログインしてください。</p>
+  <button onclick="loginWithGoogle()">Googleでログイン</button>
+</body>
+</html>
