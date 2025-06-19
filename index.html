@@ -163,6 +163,50 @@
       });
     });
   </script>
+<script type="module">
+  import { app } from './js/firebase-config.js';
+  import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+  } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+  import {
+    getFirestore,
+    doc,
+    getDoc
+  } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const userNameDisplay = document.getElementById('userNameDisplay');
+  const logoutBtn = document.getElementById('logoutBtn');
+
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      const userRef = doc(db, "users", user.uid);
+      const userSnap = await getDoc(userRef);
+
+      if (userSnap.exists()) {
+        const userData = userSnap.data();
+        userNameDisplay.textContent = `${userData.name || user.email}（${userData.role}）`;
+      } else {
+        userNameDisplay.textContent = user.email;
+      }
+
+      logoutBtn.style.display = "inline-block";
+    } else {
+      window.location.href = "/login/";
+    }
+  });
+
+  logoutBtn.addEventListener("click", () => {
+    signOut(auth).then(() => {
+      window.location.href = "/login/";
+    });
+  });
+</script>
 
 </body>
 </html>
