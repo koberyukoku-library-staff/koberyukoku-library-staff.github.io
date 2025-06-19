@@ -24,52 +24,16 @@
 
   <!-- スタイル -->
   <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-
-  <!-- Firebase設定 -->
-  <script src="js/firebase-config.js"></script>
-
-  <style>
-    /* 右上のユーザー名表示用 */
-    #userNameDisplay {
-      position: fixed;
-      top: 12px;
-      right: 20px;
-      font-weight: bold;
-      color: #556b2f;
-      cursor: default;
-      z-index: 1000;
-    }
-    #logoutBtn {
-      position: fixed;
-      top: 12px;
-      right: 130px;
-      padding: 2px 8px;
-      font-size: 14px;
-      background-color: #556b2f;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      z-index: 1000;
-      display: none;
-    }
-  </style>
-<header>
-  <div class="top-border"></div>
-  <div class="header-content">
-    <img src="bunzo1.jpg" alt="図書館ロゴ" />
-    <img src="logo.jpeg" alt="図書館ロゴ2" />
-    <div class="header-user">
-      <span id="userNameDisplay">ログイン中...</span>
-      <button id="logoutBtn" style="display: none;">ログアウト</button>
+  <header>
+    <div class="top-border"></div>
+    <div class="header-content">
+      <img src="bunzo1.jpg" alt="図書館ロゴ" />
+      <img src="logo.jpeg" alt="図書館ロゴ2" />
     </div>
-  </div>
-</header>
-
+  </header>
 
   <main>
     <div class="sidebar">
@@ -104,109 +68,6 @@
     </div>
   </main>
 
-  <!-- ユーザー名表示＆ログアウトボタン -->
-  <div id="userNameDisplay">未ログイン</div>
-  <button id="logoutBtn">ログアウト</button>
-
   <script src="script.js"></script>
-
-  <script type="module">
-  import { app } from './js/firebase-config.js';
-  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-
-  const auth = getAuth(app);
-
-  const userNameDisplay = document.getElementById('userNameDisplay');
-  const logoutBtn = document.getElementById('logoutBtn');
-
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      const name = user.displayName || user.email.split('@')[0];
-      userNameDisplay.textContent = name;
-      logoutBtn.style.display = "inline-block";
-    } else {
-      window.location.href = "/login/";
-    }
-  });
-
-  logoutBtn.addEventListener('click', () => {
-    signOut(auth).then(() => {
-      window.location.href = "/login/";
-    });
-  });
-</script>
-
-
-  <script>
-    // Firebase初期化はfirebase-config.jsで行っている前提
-
-    const auth = firebase.auth();
-    const userNameDisplay = document.getElementById('userNameDisplay');
-    const logoutBtn = document.getElementById('logoutBtn');
-
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        // ログイン済み
-        // 表示名が登録されていればそれを、なければメールアドレスの@前を表示
-        const name = user.displayName || user.email.split('@')[0];
-        userNameDisplay.textContent = name;
-        logoutBtn.style.display = "inline-block";
-      } else {
-        // 未ログイン → ログインページにリダイレクト
-        window.location.href = "/login/index.html";
-      }
-    });
-
-    logoutBtn.addEventListener('click', () => {
-      auth.signOut().then(() => {
-        window.location.href = "/login/";
-      });
-    });
-  </script>
-<script type="module">
-  import { app } from './js/firebase-config.js';
-  import {
-    getAuth,
-    onAuthStateChanged,
-    signOut
-  } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-
-  import {
-    getFirestore,
-    doc,
-    getDoc
-  } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-
-  const userNameDisplay = document.getElementById('userNameDisplay');
-  const logoutBtn = document.getElementById('logoutBtn');
-
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      const userRef = doc(db, "users", user.uid);
-      const userSnap = await getDoc(userRef);
-
-      if (userSnap.exists()) {
-        const userData = userSnap.data();
-        userNameDisplay.textContent = `${userData.name || user.email}（${userData.role}）`;
-      } else {
-        userNameDisplay.textContent = user.email;
-      }
-
-      logoutBtn.style.display = "inline-block";
-    } else {
-      window.location.href = "/login/";
-    }
-  });
-
-  logoutBtn.addEventListener("click", () => {
-    signOut(auth).then(() => {
-      window.location.href = "/login/";
-    });
-  });
-</script>
-
 </body>
 </html>
