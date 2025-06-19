@@ -24,6 +24,40 @@
 
   <!-- スタイル -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+  <!-- Firebase設定 -->
+  <script src="js/firebase-config.js"></script>
+
+  <style>
+    /* 右上のユーザー名表示用 */
+    #userNameDisplay {
+      position: fixed;
+      top: 12px;
+      right: 20px;
+      font-weight: bold;
+      color: #556b2f;
+      cursor: default;
+      z-index: 1000;
+    }
+    #logoutBtn {
+      position: fixed;
+      top: 12px;
+      right: 130px;
+      padding: 2px 8px;
+      font-size: 14px;
+      background-color: #556b2f;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1000;
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
@@ -68,6 +102,38 @@
     </div>
   </main>
 
+  <!-- ユーザー名表示＆ログアウトボタン -->
+  <div id="userNameDisplay">未ログイン</div>
+  <button id="logoutBtn">ログアウト</button>
+
   <script src="script.js"></script>
+
+  <script>
+    // Firebase初期化はfirebase-config.jsで行っている前提
+
+    const auth = firebase.auth();
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        // ログイン済み
+        // 表示名が登録されていればそれを、なければメールアドレスの@前を表示
+        const name = user.displayName || user.email.split('@')[0];
+        userNameDisplay.textContent = name;
+        logoutBtn.style.display = "inline-block";
+      } else {
+        // 未ログイン → ログインページにリダイレクト
+        window.location.href = "/login/";
+      }
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      auth.signOut().then(() => {
+        window.location.href = "/login/";
+      });
+    });
+  </script>
+
 </body>
 </html>
