@@ -47,5 +47,34 @@
         });
     });
   </script>
+  <script type="module">
+  import { app } from '../js/firebase-config.js';
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+  const auth = getAuth(app);
+
+  const loginBtn = document.getElementById("loginBtn");
+  const errorMsg = document.getElementById("errorMsg");
+
+  loginBtn.addEventListener("click", () => {
+    errorMsg.textContent = "";
+    const email = document.getElementById("idInput").value.trim();
+    const password = document.getElementById("passwordInput").value;
+
+    if (!email || !password) {
+      errorMsg.textContent = "メールアドレスとパスワードを入力してください";
+      return;
+    }
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        errorMsg.textContent = "ログインに失敗しました: " + error.message;
+      });
+  });
+</script>
+
 </body>
 </html>
