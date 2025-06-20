@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'トップ': '/top',
     'カレンダー': '/calendar',
     'Googleドライブ': 'https://drive.google.com/drive/folders/1sqY8VGma4CLHXCtI-3WQh-g5qVOdiT9l',
-    'メッセージ': '/message',
+    'GoogleClassroom': 'https://classroom.google.com/c/MTU0MTc0MzQ0MTk0',
     'カウンターシフト': '/shift',
     'カウンター業務記録': '/report',
     '申請': '/petition',
