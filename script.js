@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'トップ': '/top',
     'カレンダー': '/calendar',
     'Googleドライブ': 'https://drive.google.com/drive/folders/1sqY8VGma4CLHXCtI-3WQh-g5qVOdiT9l',
-    'GoogleClassroom': 'https://classroom.google.com/c/MTU0MTc0MzQ0MTk0',
+    'メッセージ': 'message',
     'カウンターシフト': '/shift',
     'カウンター業務記録': '/report',
     '申請': '/petition',
@@ -22,16 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
   contentFrame.src = pathMap[initialTitle];
 
   menuItems.forEach(item => {
-  item.addEventListener('click', () => {
-    const text = item.textContent.trim();
-    if (text === 'Googleドライブ' || text === 'GoogleClassroom') {
-      window.location.href = pathMap[text];
-    } else {
-      contentHeader.textContent = text;
-      contentFrame.src = pathMap[text] || '/top';
-    }
+    item.addEventListener('click', () => {
+      const text = item.textContent.trim();
+      if (text === 'Googleドライブ') {
+        window.location.href = pathMap[text];
+      } else {
+        contentHeader.textContent = text;
+        contentFrame.src = pathMap[text] || '/top';
+      }
+    });
   });
-});
 });
 
 
@@ -73,5 +73,5 @@ requestPermissionAndToken();
 
 onMessage(messaging, (payload) => {
   console.log('🔔 通知受信:', payload);
-  alert(`📢 ${payload.notification.title}\n${payload.notification.body}`);
+  alert(📢 ${payload.notification.title}\n${payload.notification.body});
 });
