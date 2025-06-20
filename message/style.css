@@ -26,8 +26,8 @@ body {
 
 .falling {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 120px;       /* 横幅だけ指定 */
+  height: auto;       /* 縦幅は自動（画像比率に合わせる） */
   user-select: none;
   cursor: pointer;
 }
