@@ -3,7 +3,7 @@ const scoreDisplay = document.getElementById('score');
 let score = 0;
 
 const goodImages = ["/bunzo1.jpg", "/bunzo2.png"];
-const badImage = "/IMG_0942-removebg-preview.png";
+const badImage = "/hajime.png";
 
 function createCharacter() {
   const img = document.createElement("img");
