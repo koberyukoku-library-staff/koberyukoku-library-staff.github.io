@@ -73,5 +73,5 @@ requestPermissionAndToken();
 
 onMessage(messaging, (payload) => {
   console.log('🔔 通知受信:', payload);
-  alert(📢 ${payload.notification.title}\n${payload.notification.body});
+  alert(`📢 ${payload.notification.title}\n${payload.notification.body}`);
 });
