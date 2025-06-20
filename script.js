@@ -22,16 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
   contentFrame.src = pathMap[initialTitle];
 
   menuItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const text = item.textContent.trim();
-      if (text === 'Googleドライブ') {
-        window.location.href = pathMap[text];
-      } else {
-        contentHeader.textContent = text;
-        contentFrame.src = pathMap[text] || '/top';
-      }
-    });
+  item.addEventListener('click', () => {
+    const text = item.textContent.trim();
+    if (text === 'Googleドライブ' || text === 'GoogleClassroom') {
+      window.location.href = pathMap[text];
+    } else {
+      contentHeader.textContent = text;
+      contentFrame.src = pathMap[text] || '/top';
+    }
   });
+});
 });
 
 
